@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<!--
+		/**
+		 *
+		 * Author Suleiman Al-Othman (@sulealothman)
+		 * Words Calculate
+		 * Version 1.0
+		 *
+		 **/
+	 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        حاسبة الكتابة
+        | @sulealothman
+    </title>
+
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row py-1 pt-4 border-bottom">
+            <div class="col-12">
+                <h1 class="text-center text-primary">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    حاسبة الكتابة
+                </h1>
+                <h6 class="text-center pt-2">
+                    لحساب عدد الأحرف و الجُمل و الفقرات في النص في آن واحد و بسرعة.
+                </h6>
+            </div>
+        </div>
+    </div>
+    <div id="main" class="container text-right my-3 rounded shadow-sm p-4">
+        <h6 class="text-center">
+            المشروع يدعم جميع اللغات بما فيها العربية
+        </h6>
+        <div class="row justify-content-center justify-content-md-start rounded border py-4">
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    عدد الحروف :
+                </span>
+                <span id="letters">0</span>
+            </div>
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    عدد الكلمات :
+                </span>
+                <span id="words">0</span>
+            </div>
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    عدد الجُمل :
+                </span>
+                <span id="sentences">0</span>
+            </div>
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    عدد الفقرات :
+                </span>
+                <span id="paragraphs">0</span>
+            </div>
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    عدد الحروف الأبجدية :
+                </span>
+                <span id="alphapet">0</span>
+            </div>
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    عدد الحروف و الأرقام :
+                </span>
+                <span id="alphanumeric">0</span>
+            </div>
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    عدد الحروف مع التشكيل :
+                </span>
+                <span id="alphanumeric-with-tashkeel">0</span>
+            </div>
+        </div>
+
+        <div class="row py-2">
+            <textarea placeholder="أكتب هُنا (بإمكانك إدراج النص)" id="text" dir="rtl" class="form-control"
+                rows="17"></textarea>
+        </div>
+
+    </div>
+    <button id="back-to-up" class="bg-dark border rounded-circle"> <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <div id="footer" class="container-fluid bg-dark">
+        <div class="row justify-content-center py-2">
+            <p class="col-12 text-center text-primary small py-1 m-0">
+                برمجة سليمان العثمان
+            </p>
+            <a class="text-primary px-1" target="_blank" title="@sulealothman twitter"
+                href="https://www.twitter.com/sulealothman">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a class="text-primary px-1" target="_blank" title="@sulealothman github"
+                href="https://www.github.com/sulealothman">
+                <i class="fa fa-github" aria-hidden="true"></i>
+            </a>
+            <a class="text-primary px-1" target="_blank" title="@sulealothman snapchat"
+                href="https://www.snapchat.com/add/sulealothman">
+                <i class="fa fa-snapchat" aria-hidden="true"></i>
+            </a>
+            <span class="text-primary" dir="ltr">
+                @sulealothman
+            </span>
+        </div>
+    </div>
+
+    <script src="assets/jquery-3.5.1.min.js"></script>
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
+    <script src="../dist/words-calculate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 20) {
+                    $('#back-to-up').css('display', 'block');
+                } else {
+                    $('#back-to-up').css('display', 'none');
+                }
+            });
+
+            $('#back-to-up').click(function () {
+                $("html, body").animate({
+                    scrollTop: 0
+                }, 500);
+            });
+        });
+        var timer = null;
+        function placeFooter() {
+            if (($(document.body).height() + $('#footer').height()) < $(window).height()) {
+                $("#footer").css({ position: "absolute", bottom: "0px" });
+            } else {
+                $("#footer").css({ position: "relative" });
+            }
+        }
+        placeFooter();
+
+        $('#text').on('mousedown', () => {
+            timer = setInterval(() => { placeFooter() }, 3);
+        })
+
+        $(window).on('mouseup', () => {
+            clearInterval(timer)
+            timer = null;
+            placeFooter();
+        })
+
+        $(document).on('keyup', '#text', () => {
+            let text = $('#text').val();
+            text = splitCombineChar(text);
+            $('#letters').text(charsCount(text));
+            $('#words').text(wordsCount(text));
+            $('#sentences').text(sentencesCount(text));
+            $('#paragraphs').text(paragraphsCount(text));
+            $('#alphapet').text(alphabetsCount(text));
+            $('#alphanumeric').text(alphanumericCount(text));
+            $('#alphanumeric-with-tashkeel').text(alphanumericWithTashkeelCount(text));
+        });
+    </script>
+</body>
+
+</html>

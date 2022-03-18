@@ -1,0 +1,27 @@
+{
+  "name": "words-calculate",
+  "version": "1.0.0",
+  "description": "Count everything about text, letters, words, sentences and paragraphs, and more.",
+  "main": "dist/words-calculate.js",
+  "module": "dist/words-calculate.esm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "keywords": [
+    "words-calculate",
+    "alphabets",
+    "alphanumerics",
+    "letters",
+    "words",
+    "sentences",
+    "paragraphs"
+  ],
+  "author": "Suleiman Al-Othman",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {}
+}
