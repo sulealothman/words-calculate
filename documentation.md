@@ -5,6 +5,7 @@
 #### List of methods
 
 - [calculateWords](#words-calculate)
+- [calculateReadingTime](#calculate-reading-time)
 - [alphabetsCount](#alphabets-count)
 - [alphanumericCount](#alphanumeric-count)
 - [alphanumericWithTashkeelCount](#alphanumeric-tashkeel-count)
@@ -29,6 +30,9 @@ Counts the text's object.
 `text`
 A string for inspect.
 
+`wordsPerMinute` (wpm) Optional
+Average words per minute
+
 ##### Return value
 
 Returns the text's object.
@@ -47,7 +51,55 @@ console.log(calculateWords(str));
 Output
 
 ```
-Object { words_count: 8, characters_count: 34, alphabets_count: 17, alphanumeric_count: 21, tashkeels_count: 2, alphanumeric_tashkeel_count: 23, sentences_count: 1, paragraphs_count: 1, lines_count: 1 }
+{
+  words_count: 8,
+  characters_count: 34,
+  alphabets_count: 17,
+  alphanumeric_count: 21,
+  tashkeels_count: 2,
+  alphanumeric_tashkeel_count: 23,
+  sentences_count: 1,
+  paragraphs_count: 1,
+  lines_count: 1,
+  calculate_reading_time: 1
+}
+```
+
+### words-calculate methods
+
+### calculateReadingTime <a id="calculate-reading-time"></a>
+
+Counts the text's object.
+
+##### Parameter
+
+`text`
+A string for inspect.
+
+`wordsPerMinute` (wpm) Optional
+Average words per minute
+
+##### Return value
+
+Returns the reading time.
+
+##### Example
+
+```js
+let text = `
+Cedarpelta Diabloceratops Lamaceratops Cetiosaurus Spondylosoma Concavenator Nqwebasaurus Diceratops Eucercosaurus Diplodocus Astrodontaurus Panguraptor Euhelopus Tsagantegia Brachiosaurus Seitaad Heyuannia Gigantoscelus Abrictosaurus Daspletosaurus Wuerhosaurus Kangnasaurus Scutellosaurus Dimodosaurus Fulengia Conchoraptor Kayentavenator Beipiaognathus Sarcosaurus Stegoceras Gastonia Onychosaurus Iuticosaurus Eomamenchisaurus Tonganosaurus Deuterosaurus Azendohsaurus Troodon Dinosaurus Gobititan Carnotaurus Archaeoraptor Kemkemia Anodontosaurus Datanglong Savannasaurus Zhuchengtitan Zhejiangosaurus Cionodon Walgettosuchus Acrotholus Sarahsaurus Aublysodon Abrosaurus Zhuchengceratops Syngonosaurus Torilion Parrosaurus Syrmosaurus Gresslyosaurus Zalmoxes Efraasia Banji Pteropelyx Khetranisaurus Anchiceratops Marmarospondylus Titanosaurus Tangvayosaurus Angulomastacator Hungarosaurus Diplodocus Nqwebasaurus Ornithotarsus Amtosaurus Tachiraptor Avipes Didanodon Dinodocus Kritosaurus Oohkotokia Avimimus Yehuecauhceratops Buriolestes Lucianosaurus Tonganosaurus Tanystrosuchus Mojoceratops Yunganglong Murusraptor Avaceratops Frenguellisaurus Procompsognathus Pukyongosaurus Aucasaurus Procompsognathus Histriasaurus Dromaeosauroides Itemirus Frenguellisaurus Microhadrosaurus Wuerhosaurus Guanlong Barrosasaurus Lusotitan Sinopelta Epanterias Spondylosoma Postosuchus Chondrosteosaurus Linhenykus Caudipteryx Tatankaceratops Stenotholus Ultrasaurus Stenotholus Qiaowanlong Amphicoelicaudia Cedrorestes Pachysaurops Sirindhorna Peloroplites Plesiohadros Dyslocosaurus Graciliraptor Thecocoelurus Loricosaurus Chromogisaurus Macrocollum Huxleysaurus Hylosaurus Rileya Gigantosaurus Mandschurosaurus Diabloceratops Avalonianus Kundurosaurus Wulatelong Dracorex Brasilotitan Crosbysaurus Pneumatoraptor Neosaurus Magnamanus Shingopana Yi Rahiolisaurus Banji Narambuenatitan Chilesaurus Dicraeosaurus Dryptosauroides Irritator Paronychodon Shingopana Hudiesaurus Marmarospondylus Eomamenchisaurus Mapusaurus Protorosaurus Luoyanggia Triceratops Monkonosaurus Massospondylus Stygimoloch Saldamosaurus Batyrosaurus Altispinax Abelisaurus Leptospondylus Suzhousaurus Protoceratops Imperobator Leptospondylus Lessemsaurus Cheneosaurus Tichosteus Datousaurus Dracovenator Eucentrosaurus Arizonasaurus Sinotyrannus Ischisaurus Nopcsaspondylus Acheroraptor Dromicosaurus Wuerhosaurus Dalianraptor Elrhazosaurus Scelidosaurus Talenkauen Pelorosaurus Dandakosaurus Pteropelyx Nigersaurus Pneumatoarthrus Suchomimus Jingshanosaurus Torosaurus Levnesovia Tapuiasaurus Raptorex Gobiraptor Chuandongocoelurus Onychosaurus Sinopeltosaurus Kotasaurus Leptoceratops Dolichosuchus Ratchasimasaurus Ouranosaurus Bonitasaura Anzu Vectisaurus Syngonosaurus Dromaeosauroides Ojoceratops Tengrisaurus Limaysaurus Balaur Qijianglong Caenagnathasia Spinosaurus Galesaurus Chiayusaurus.
+
+Sinotyrannus Tyrannosaurus Yunmenglong a Traukutitan Siamotyrannus Achillobator Spiclypeus Isisaurus Dromiceiomimus Brohisaurus Ornithosuchus Sinornithosaurus Cedarosaurus Barosaurus Velocisaurus Leptoceratops Gryposaurus Anchiornis Austrocheirus Argyrosaurus Leptospondylus Polacanthus Pisanosaurus Epidexipteryx Paralititan Gresslyosaurus Marshosaurus Tethyshadros Volgatitan Bagaceratops Richardoestesia Kemkemia Zuniceratops Abrosaurus Wuerhosaurus Zanabazar Poekilopleuron Bakesaurus Convolosaurus Centemodon Histriasaurus Othnielia Guaibasaurus Crichtonpelta Heyuannia Cathartesaura Iguanodon Poekilopleuron Oryctodromeus Walgettosuchus Chuanqilong Torilion Xinjiangtitan Liassaurus Daanosaurus Clasmodosaurus Mapusaurus Equijubus Lurdusaurus Acrocanthosaurus Lanzhousaurus Eotyrannus Alioramus Aardonyx Sefapanosaurus Kotasaurus Secernosaurus Kryptops Maxakalisaurus Protoavis Ugrunaaluk Qianzhousaurus Taurovenator Hongshanosaurus Morosaurus Plesiohadros Iliosuchus Tsagantegia Tichosteus Datonglong Afromimus Moros Scutellosaurus Bonitasaura Actiosaurus Phuwiangosaurus Priconodon Teratosaurus Zaraapelta Yunganglong Europasaurus Elaltitan Stormbergia Riabininohadros Adelolophus Gongbusaurus Aucasaurus Iliosuchus Lametasaurus Limnornis Dilong Plateosauravus Yunnanosaurus Rhadinosaurus Philovenator Hungarosaurus Scipionyx Secernosaurus Pachysaurops Centrosaurus Brohisaurus Zuolong Aquilops Rugops Lusitanosaurus Carnotaurus Serikornis Elaltitan Clepsysaurus Abydosaurus Prosaurolophus Augustia Gasparinisaura Fukuisaurus Mononykus Sinopliosaurus Mercuriceratops Magnapaulia Lucianovenator Campylodon Protorosaurus Macrodontophion Rhadinosaurus Tanycolagreus Zuniceratops Sauroplites Macrophalangia Bothriospondylus Xixianykus Yimenosaurus Agujaceratops Fosterovenator Xinjiangovenator Anchisaurus Convolosaurus Caseosaurus Altispinax Asiaceratops Streptospondylus Talos Nuthetes Blasisaurus Albertaceratops Cardiodon Fukuititan Gryphoceratops Rahiolisaurus Atlantosaurus Hypselosaurus Glacialisaurus Apatodon Nemegtia Siamotyrannus Pawpawsaurus Nqwebasaurus Clarencea Alvarezsaurus Chassternbergia Asiamericana Aepisaurus Platyceratops Clasmodosaurus Zhongjianosaurus Erectopus Angloposeidon Triceratops Polacanthus Quetecsaurus Chuanqilong Tehuelchesaurus Albertavenator Adeopapposaurus Piatnitzkysaurus Aucasaurus Regnosaurus Pseudolagosuchus Datanglong Coloradia Naashoibitosaurus Appalachiosaurus Xenoceratops Hecatasaurus Macrophalangia Macelognathus Meroktenos Sinornithosaurus Dracoraptor Nomingia Sauroposeidon Hypsibema Ferganocephale Protohadros Phyllodon Muttaburrasaurus Augustynolophus Proceratosaurus Lagosuchus Itemirus Fendusaurus Tengrisaurus Foraminacephale Tornieria Datonglong Mussaurus Limnornis Campylodon Arizonasaurus Agilisaurus Ornithomerus Hortalotarsus Xixianykus Arkharavia Taohelong Monkonosaurus Pentaceratops.
+`;
+console.log(calculateReadingTime(text));
+```
+
+####
+
+Output
+
+```
+3
 ```
 
 ### alphabetsCount <a id="alphabets-count"></a>

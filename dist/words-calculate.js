@@ -49,6 +49,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "alphabetsCount": () => (/* binding */ alphabetsCount),
 /* harmony export */   "alphanumericCount": () => (/* binding */ alphanumericCount),
 /* harmony export */   "alphanumericWithTashkeelCount": () => (/* binding */ alphanumericWithTashkeelCount),
+/* harmony export */   "calculateReadingTime": () => (/* binding */ calculateReadingTime),
 /* harmony export */   "calculateWords": () => (/* binding */ calculateWords),
 /* harmony export */   "charsCount": () => (/* binding */ charsCount),
 /* harmony export */   "linesCount": () => (/* binding */ linesCount),
@@ -157,11 +158,26 @@ function paragraphsCount(text) {
 }
 
 /**
+ * @description Calculate the estimated reading time of a text
+ * @param {string} text a string for inspect
+ * @param {number} [wordsPerMinute=225] (wpm) average words per minute
+ * @returns {number} the reading time
+ */
+function calculateReadingTime(text, wordsPerMinute = 225) {  
+    let textLength = text.trim().split(/\s+/).length;
+    if(textLength > 0){
+      return Math.ceil(textLength / wordsPerMinute);
+    }
+    return 0;
+}
+
+/**
  * @description Counts the text's object
  * @param {string} text a string for inspect
+ * @param {number} [wordsPerMinute=225] (wpm) average words per minute
  * @returns {object} the text's object
  */
-function calculateWords(text) {
+function calculateWords(text, wordsPerMinute = 225) {
     text = splitCombineChar(text);
     return {
         words_count: wordsCount(text),
@@ -172,7 +188,8 @@ function calculateWords(text) {
         alphanumeric_tashkeel_count: alphanumericWithTashkeelCount(text),
         sentences_count: sentencesCount(text),
         paragraphs_count: paragraphsCount(text),
-        lines_count: linesCount(text)
+        lines_count: linesCount(text),
+        calculate_reading_time : calculateReadingTime(text, wordsPerMinute)
     }
 }
 

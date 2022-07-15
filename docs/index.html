@@ -86,6 +86,13 @@
                 </span>
                 <span id="alphanumeric-with-tashkeel">0</span>
             </div>
+
+            <div class="col-9 col-sm-6 col-md-4 col-lg-3">
+                <span>
+                    الوقت المتوقع لقراءة النص :
+                </span>
+                <span id="reading-time">0</span>
+            </div>
         </div>
 
         <div class="row py-2">
@@ -122,55 +129,9 @@
 
     <script src="assets/jquery-3.5.1.min.js"></script>
     <script src="assets/bootstrap/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/words-calculate@1.0.0/dist/words-calculate.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                if ($(window).scrollTop() > 20) {
-                    $('#back-to-up').css('display', 'block');
-                } else {
-                    $('#back-to-up').css('display', 'none');
-                }
-            });
-
-            $('#back-to-up').click(function () {
-                $("html, body").animate({
-                    scrollTop: 0
-                }, 500);
-            });
-        });
-        var timer = null;
-        function placeFooter() {
-            if (($(document.body).height() + $('#footer').height()) < $(window).height()) {
-                $("#footer").css({ position: "absolute", bottom: "0px" });
-            } else {
-                $("#footer").css({ position: "relative" });
-            }
-        }
-        placeFooter();
-
-        $('#text').on('mousedown', () => {
-            timer = setInterval(() => { placeFooter() }, 3);
-        })
-
-        $(window).on('mouseup', () => {
-            clearInterval(timer)
-            timer = null;
-            placeFooter();
-        })
-
-        $(document).on('keyup', '#text', () => {
-            let text = $('#text').val();
-            text = splitCombineChar(text);
-            $('#letters').text(charsCount(text));
-            $('#words').text(wordsCount(text));
-            $('#sentences').text(sentencesCount(text));
-            $('#paragraphs').text(paragraphsCount(text));
-            $('#alphapet').text(alphabetsCount(text));
-            $('#alphanumeric').text(alphanumericCount(text));
-            $('#alphanumeric-with-tashkeel').text(alphanumericWithTashkeelCount(text));
-        });
-    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/words-calculate@1.0.0/dist/words-calculate.min.js"></script> -->
+    <script src="../dist/words-calculate.min.js"></script>
+    <script src="assets/app.js"></script>
 </body>
 
 </html>

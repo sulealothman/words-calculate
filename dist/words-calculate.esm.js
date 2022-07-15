@@ -23,6 +23,7 @@
 var __webpack_exports__ = {};
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "D": () => (/* binding */ wordsCount),
+/* harmony export */   "Eh": () => (/* binding */ calculateReadingTime),
 /* harmony export */   "Ij": () => (/* binding */ alphabetsCount),
 /* harmony export */   "Ls": () => (/* binding */ tashkeelsCount),
 /* harmony export */   "Yk": () => (/* binding */ alphanumericWithTashkeelCount),
@@ -133,11 +134,26 @@ function paragraphsCount(text) {
 }
 
 /**
+ * @description Calculate the estimated reading time of a text
+ * @param {string} text a string for inspect
+ * @param {number} [wordsPerMinute=225] (wpm) average words per minute
+ * @returns {number} the reading time
+ */
+function calculateReadingTime(text, wordsPerMinute = 225) {  
+    let textLength = text.trim().split(/\s+/).length;
+    if(textLength > 0){
+      return Math.ceil(textLength / wordsPerMinute);
+    }
+    return 0;
+}
+
+/**
  * @description Counts the text's object
  * @param {string} text a string for inspect
+ * @param {number} [wordsPerMinute=225] (wpm) average words per minute
  * @returns {object} the text's object
  */
-function calculateWords(text) {
+function calculateWords(text, wordsPerMinute = 225) {
     text = splitCombineChar(text);
     return {
         words_count: wordsCount(text),
@@ -148,7 +164,8 @@ function calculateWords(text) {
         alphanumeric_tashkeel_count: alphanumericWithTashkeelCount(text),
         sentences_count: sentencesCount(text),
         paragraphs_count: paragraphsCount(text),
-        lines_count: linesCount(text)
+        lines_count: linesCount(text),
+        calculate_reading_time : calculateReadingTime(text, wordsPerMinute)
     }
 }
 
@@ -157,6 +174,7 @@ function calculateWords(text) {
 var __webpack_exports__alphabetsCount = __webpack_exports__.Ij;
 var __webpack_exports__alphanumericCount = __webpack_exports__._E;
 var __webpack_exports__alphanumericWithTashkeelCount = __webpack_exports__.Yk;
+var __webpack_exports__calculateReadingTime = __webpack_exports__.Eh;
 var __webpack_exports__calculateWords = __webpack_exports__.aS;
 var __webpack_exports__charsCount = __webpack_exports__.td;
 var __webpack_exports__linesCount = __webpack_exports__.bY;
@@ -165,6 +183,6 @@ var __webpack_exports__sentencesCount = __webpack_exports__.z$;
 var __webpack_exports__splitCombineChar = __webpack_exports__.gR;
 var __webpack_exports__tashkeelsCount = __webpack_exports__.Ls;
 var __webpack_exports__wordsCount = __webpack_exports__.D;
-export { __webpack_exports__alphabetsCount as alphabetsCount, __webpack_exports__alphanumericCount as alphanumericCount, __webpack_exports__alphanumericWithTashkeelCount as alphanumericWithTashkeelCount, __webpack_exports__calculateWords as calculateWords, __webpack_exports__charsCount as charsCount, __webpack_exports__linesCount as linesCount, __webpack_exports__paragraphsCount as paragraphsCount, __webpack_exports__sentencesCount as sentencesCount, __webpack_exports__splitCombineChar as splitCombineChar, __webpack_exports__tashkeelsCount as tashkeelsCount, __webpack_exports__wordsCount as wordsCount };
+export { __webpack_exports__alphabetsCount as alphabetsCount, __webpack_exports__alphanumericCount as alphanumericCount, __webpack_exports__alphanumericWithTashkeelCount as alphanumericWithTashkeelCount, __webpack_exports__calculateReadingTime as calculateReadingTime, __webpack_exports__calculateWords as calculateWords, __webpack_exports__charsCount as charsCount, __webpack_exports__linesCount as linesCount, __webpack_exports__paragraphsCount as paragraphsCount, __webpack_exports__sentencesCount as sentencesCount, __webpack_exports__splitCombineChar as splitCombineChar, __webpack_exports__tashkeelsCount as tashkeelsCount, __webpack_exports__wordsCount as wordsCount };
 
 //# sourceMappingURL=words-calculate.esm.js.map

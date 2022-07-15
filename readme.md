@@ -70,8 +70,8 @@ or using minify
 
 ### Documentation
 
-Check out [Documentation](./documentation.md).
+Check out [Documentation](https://github.com/sulealothman/words-calculate/blob/main/documentation.md).
 
 ### License
 
-Obrays is [MIT licensed](./LICENSE).
+Words-Calculate is [MIT licensed](./LICENSE).
